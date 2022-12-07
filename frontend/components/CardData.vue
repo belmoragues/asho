@@ -25,7 +25,7 @@ export default {
     number: {
       required: true,
       default: '',
-      type: String,
+      type: [String, Number],
     },
     color: {
       required: true,

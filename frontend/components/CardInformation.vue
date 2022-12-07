@@ -1,5 +1,5 @@
 <template>
-  <v-card style="width: 65%" :color="color" hover :to="route">
+  <v-card style="width: 30%" :color="color" hover :to="route">
     <v-icon
       size="100"
       style="display: flex; justify-content: center"

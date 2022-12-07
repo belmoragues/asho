@@ -58,6 +58,55 @@ class PassengerRepository extends ServiceEntityRepository
        return ['female' => $female[0][1], 'male' => $male[0][1]];
    }
 
+   public function fetchPassengers(): array
+    {
+
+        $passengers = $this->createQueryBuilder('p')
+        ->select('count(p.id)')
+        ->getQuery()
+        ->getScalarResult();
+
+
+
+       return ['total' => $passengers[0][1]];
+   }
+
+   public function fetchSurvivors(): array
+   {
+
+       $survivors = $this->createQueryBuilder('p')
+       ->select('count(p.id)')
+       ->andWhere('p.survived = :survived')->setParameter('survived', 1)
+       ->getQuery()
+       ->getScalarResult();
+
+
+
+      return ['total' => $survivors[0][1]];
+  }
+
+  public function fetchSurvivorsByGender(): array
+   {
+
+       $survivorsMale = $this->createQueryBuilder('p')
+       ->select('count(p.id)')
+       ->andWhere('p.survived = :survived')->setParameter('survived', 1)
+       ->andWhere('p.sex = :sex')->setParameter('sex', 'male')
+       ->getQuery()
+       ->getScalarResult();
+
+       $survivorsFemale = $this->createQueryBuilder('p')
+       ->select('count(p.id)')
+       ->andWhere('p.survived = :survived')->setParameter('survived', 1)
+       ->andWhere('p.sex = :sex')->setParameter('sex', 'female')
+       ->getQuery()
+       ->getScalarResult();
+
+
+
+      return ['data' => [$survivorsMale[0][1], $survivorsFemale[0][1]]];
+  }
+
 //    /**
 //     * @return Passenger[] Returns an array of Passenger objects
 //     */

@@ -9,16 +9,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\PassengerRepository;
 
-class GenderDataController extends AbstractController
+class PassengerController extends AbstractController
 {
-
-    #[Route('/gender-data', name: 'fetch_gender_data', methods:['GET'])]
-    public function index(PassengerRepository $passengerRepository): Response
+    #[Route('/passengers', name: 'fetch_passenger_data', methods:['GET'])]
+    public function passengers(PassengerRepository $passengerRepository): Response
     {
 
-        $genderData = $passengerRepository->fetchGenderData();
+        $passengersCount = $passengerRepository->fetchPassengers();
 
-        return $this->json($genderData);
+        return $this->json($passengersCount);
     }
-
 }
