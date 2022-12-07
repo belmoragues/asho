@@ -107,6 +107,35 @@ class PassengerRepository extends ServiceEntityRepository
       return ['data' => [$survivorsMale[0][1], $survivorsFemale[0][1]]];
   }
 
+  public function fetchSurvivorsByClass(): array
+   {
+
+       $firstClass = $this->createQueryBuilder('p')
+       ->select('count(p.id)')
+       ->andWhere('p.survived = :survived')->setParameter('survived', 1)
+       ->andWhere('p.class = :class')->setParameter('class', 1)
+       ->getQuery()
+       ->getScalarResult();
+
+       $secondClass = $this->createQueryBuilder('p')
+       ->select('count(p.id)')
+       ->andWhere('p.survived = :survived')->setParameter('survived', 1)
+       ->andWhere('p.class = :class')->setParameter('class', 2)
+       ->getQuery()
+       ->getScalarResult();
+
+       $thirdClass = $this->createQueryBuilder('p')
+       ->select('count(p.id)')
+       ->andWhere('p.survived = :survived')->setParameter('survived', 1)
+       ->andWhere('p.class = :class')->setParameter('class', 3)
+       ->getQuery()
+       ->getScalarResult();
+
+
+
+       return ['first' => $firstClass[0][1], 'second' => $secondClass[0][1], 'third' => $thirdClass[0][1]];
+  }
+
 //    /**
 //     * @return Passenger[] Returns an array of Passenger objects
 //     */

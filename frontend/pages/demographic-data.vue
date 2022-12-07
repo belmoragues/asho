@@ -22,7 +22,18 @@
         :number="survivors.total"
         color="#fed898"
       />
-      <CardData description="Age limits" number="10-68" color="#abd5d6" />
+      <CardData
+        v-if="survivorsClass"
+        description="Survivors by class"
+        :number="
+          survivorsClass.first +
+          '/' +
+          survivorsClass.second +
+          '/' +
+          survivorsClass.third
+        "
+        color="#abd5d6"
+      />
       <v-col cols="12" sm="6" style="padding: 20px">
         <v-card class="m-2 p-2" style="height: 300px">
           <PieChart v-if="chartData" :chart-data="chartData" />
@@ -52,6 +63,7 @@ export default {
       passengers: null,
       survivors: null,
       survivorsGender: null,
+      survivorsClass: null,
     }
   },
   beforeMount() {
@@ -59,6 +71,7 @@ export default {
     this.fetchPassengers()
     this.fetchSurvivors()
     this.fetchSurvivorsByGender()
+    this.fetchSurvivorsByClass()
   },
   methods: {
     async fetchGenderData() {
@@ -114,6 +127,14 @@ export default {
               },
             ],
           }
+          return response.data
+        })
+    },
+
+    async fetchSurvivorsByClass() {
+      this.survivorsClass = await this.$axios
+        .get('http://127.0.0.1:8000/survivors-class', {})
+        .then((response) => {
           return response.data
         })
     },
