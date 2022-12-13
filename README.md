@@ -43,8 +43,6 @@ $ yarn dev
 
 ```
 
-# Application images
-
 # Main page image
 
 <div align="center">
