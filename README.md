@@ -45,4 +45,6 @@ $ yarn dev
 
 # Application images
 
-![Main page](/frontend/static/data.png?raw=true "Main page")
+<div align="center">
+    <img src="frontend/data.png" alt="Data page" width="400" />
+</div>
