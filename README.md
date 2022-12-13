@@ -42,3 +42,7 @@ $ yarn install
 $ yarn dev
 
 ```
+
+# Application images
+
+![Main page](/frontend/static/data.png?raw=true "Main page")
