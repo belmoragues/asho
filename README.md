@@ -46,5 +46,9 @@ $ yarn dev
 # Application images
 
 <div align="center">
+    <img src="frontend/static/main.PNG" alt="Data page" width="400" />
+</div>
+
+<div align="center">
     <img src="frontend/static/data.PNG" alt="Data page" width="400" />
 </div>
