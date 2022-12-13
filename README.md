@@ -1,5 +1,27 @@
 # Titanic
 
+Esta aplicación consiste en dos páginas: 
+
+# Main page image
+
+La página principal permite el redirect a la página de visualización de datos. 
+
+<div align="center">
+    <img src="frontend/static/main.PNG" alt="Data page" width="400" />
+</div>
+
+# Data page image
+
+Esta página consiste en la visualización de datos a través de indicadores y gráficos. 
+
+<div align="center">
+    <img src="frontend/static/data.PNG" alt="Data page" width="400" />
+</div>
+
+# set up
+
+Para poder ejecutar la aplicación se deben realizar los pasos descritos en los siguientes apartados.
+
 # backend
 
 ```bash
@@ -42,15 +64,3 @@ $ yarn install
 $ yarn dev
 
 ```
-
-# Main page image
-
-<div align="center">
-    <img src="frontend/static/main.PNG" alt="Data page" width="400" />
-</div>
-
-# Data page image
-
-<div align="center">
-    <img src="frontend/static/data.PNG" alt="Data page" width="400" />
-</div>
