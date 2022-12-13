@@ -10,7 +10,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 use League\Csv\Reader;
 use Doctrine\Persistence\ManagerRegistry;
 
-// the name of the command is what users type after "php bin/console"
 #[AsCommand(name:'load_titanic_data', description: 'Load titanic data')]
 class LoadTitanicDataConsole extends Command
 {
